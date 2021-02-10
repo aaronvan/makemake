@@ -9,8 +9,8 @@ CC		= gcc
 BINDIR	= bin
 OBJDIR	= obj
 SRCDIR	= src
-MKDIR	= mkdir -p
-RM		= rm -rf
+MKDIR	= mkdir -pv
+RM		= rm -rfv
 VERIFY	= cat -e -t -v Makefile
 
 SRC     = $(wildcard $(SRCDIR)/*.c)
