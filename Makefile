@@ -12,10 +12,8 @@ SRCDIR	= src
 MKDIR	= mkdir -pv
 RM		= rm -rfv
 VERIFY	= cat -e -t -v Makefile
-
 SRC     = $(wildcard $(SRCDIR)/*.c)
 OBJS    = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRC))
-
 CFLAGS 	= -Wall -g -std=c17 -pedantic -Iinclude -Werror -DNDEBUG
 
 # executable
@@ -49,6 +47,19 @@ clean:
 verify:
 	$(VERIFY)
 
+.PHONY: show	
+show:
+	@echo 'COMPILER    :' $(CC)
+	@echo 'CFLAGS      :' $(CFLAGS)
+	@echo 'BINDIR      :' $(BINDIR)
+	@echo 'OBJDIR      :' $(OBJDIR)
+	@echo 'MKDIR       :' $(MKDIR)
+	@echo 'RM          :' $(RM)
+	@echo 'VERIFY      :' $(VERIFY)
+	@echo 'SRC         :' $(SRC)
+	@echo 'OBJS        :' $(OBJS)
+	@echo 'BIN         :' $(BIN)
+	
 # macro review
 print-%:
 	@echo $* = $($*)
